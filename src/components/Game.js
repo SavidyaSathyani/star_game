@@ -14,9 +14,9 @@ class Game extends React.Component {
                 <hr/>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-md-5"><Stars /></div>
-                        <div className="col-md-2"><Button /></div>
-                        <div className="col-md-5"><Answer /></div> 
+                        <Stars />
+                        <Button />
+                        <Answer />
                     </div>
                 </div>
             </div>
