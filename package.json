@@ -8,7 +8,11 @@
     "watch": "npm run build -- --watch",
     "start": "webpack-dev-server --hot"
   },
-  "author": "Savidya Sathyani",
+  "author": "Savidya Sathyani <savidya19@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SavidyaSathyani/star_game.git"
+  },
   "license": "MIT",
   "dependencies": {
     "react": "^16.3.2",
