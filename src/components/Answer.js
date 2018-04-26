@@ -3,7 +3,7 @@ import React from 'react';
 const Answer = (props) => {
     return(
         <div className="col-md-5">
-            {props.selectedNumbers.map((number, i) => <span key={i}>{number}</span>)}
+            {props.selectedNumbers.map((number, i) => <span key={i} onClick={() => props.deSelectNumber(number)}>{number}</span>)}
         </div>
     );
 };

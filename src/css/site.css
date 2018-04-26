@@ -7,7 +7,7 @@
     font-size: 50px;
 }
 
-.btn-primary{
+.btn{
     width: 50px;
     height: 50px;
     margin-top: 30px;
@@ -35,5 +35,13 @@ span{
     background-color: #FF3333;
     color: #ddd;
     cursor: not-allowed;
+}
+
+.win{
+    color: green;
+}
+
+.loose{
+    color: red;
 }
 
