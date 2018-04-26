@@ -66,7 +66,7 @@ class Game extends React.Component {
         if (arr[0] > n) { return false; }
         if (arr[arr.length - 1] > n) {
             arr.pop();
-            return possibleCombinationSum(arr, n);
+            return this.possibleCombinationSum(arr, n);
         }
         var listSize = arr.length, combinationsCount = (1 << listSize)
         for (var i = 1; i < combinationsCount; i++) {
@@ -90,10 +90,10 @@ class Game extends React.Component {
     updateDoneStatus = () => {
         this.setState(prevState => {
             if (prevState.usedNumbers.length === 9) {
-                return { doneStatus: "You Win!" };
+                return { doneStatus: "You Win!", randomNumber: 0 };
             }
             if (prevState.redraws === 0 && !this.possibleSolutions(prevState)) {
-                return { doneStatus: "Game Over!" };
+                return { doneStatus: "Game Over!", randomNumber: 0 };
             }
         });
     };
@@ -106,11 +106,12 @@ class Game extends React.Component {
             <div className="jumbotron">
                 <div style={{ marginLeft: "10px" }}>
                     <h1 >Play Stars</h1>
-                    <p>This is a simple game to improve your addition skills in mathemetics.</p>
+                    <p>Try to use all the numbers. Have fun!!!</p>
                 </div>
                 <hr />
                 <div className="container-fluid">
                     <div className="row">
+                        <div className="col-md-1"></div>
                         <Stars numberOfStars={randomNumber} />
                         <Button selectedNumbers={selectedNumbers}
                             checkAnswer={this.checkAnswer}
@@ -120,16 +121,30 @@ class Game extends React.Component {
                             correctAnswer={correctAnswer} />
                         <Answer selectedNumbers={selectedNumbers}
                             deSelectNumber={this.deSelectNumber} />
+                        <div className="col-md-2"></div>
                     </div>
                     <br />
-                    {doneStatus ?
-                        <DoneFrame doneStatus={doneStatus}
-                                   resetGame={this.resetGame} /> :
-                        <Numbers selectedNumbers={selectedNumbers}
-                            usedNumbers={usedNumbers}
-                            selectNumber={this.selectNumber} />
-                    }
+                    <div className="row">
+                        {doneStatus ?
+                            <DoneFrame doneStatus={doneStatus}
+                                    resetGame={this.resetGame} /> :
+                            <Numbers selectedNumbers={selectedNumbers}
+                                usedNumbers={usedNumbers}
+                                selectNumber={this.selectNumber} />
+                        }
+                    </div>
                 </div>
+                <hr />
+                <div className="card" style={{ marginLeft: "10px" }}>
+                        <h4>How to play the game?</h4>
+                        <ul>
+                            <li>Try to match the number of starts displaying with the numbers in the number panel.</li>
+                            <li>You can select any number of integers from the number panel and when you are done click on the match button <button className="btn-primary">=</button>.</li>
+                            <li>If your number combination is correct, you must press on <button className="btn-success"><i className="fa fa-check"></i></button> again to get new stars.</li>
+                            <li>If you got the combination wrong you can deselect the numbers by clicking on them in the right hand side panel and try again.</li>
+                            <li>If you manage to use all the numbers in the number panel you win.</li> 
+                        </ul>
+                    </div>
             </div>
         );
     }
