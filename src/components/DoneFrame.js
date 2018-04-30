@@ -5,7 +5,7 @@ const DoneFrame = (props) => {
         if(status === "Game Over!"){
             return "loose";
         }
-        if(status === "You Win!"){
+        if(status === "You Won!"){
             return "win";
         }
     }
